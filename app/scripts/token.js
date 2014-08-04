@@ -1,0 +1,4 @@
+Token = function(color, symbol){
+
+
+}

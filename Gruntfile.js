@@ -138,10 +138,10 @@ module.exports = function (grunt) {
 
         // Jasmine testing framework configuration options
         jasmine: {
-            all: {
-                options: {
-                    specs: 'test/spec/{,*/}*.js'
-                }
+            src: 'app/**/*.js',
+            options: {
+                specs: 'test/spec/{,*/}*.js',
+                helpers: 'test/spec/helpers/**/*.js'
             }
         },
 
