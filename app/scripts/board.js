@@ -1,6 +1,5 @@
 Board = function(tilesToASide, tileSize) {
   this.tilesToASide = tilesToASide;
-  this.tileSize = tileSize;
   var tiles = [];
   for(var i = 0; i < tilesToASide; i++){
     tiles[i] = [];
