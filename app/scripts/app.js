@@ -18,22 +18,22 @@ App.prototype.render = function() {
         htmlString += '<td id="middle"></td>';
       }
       else if(tr == 0) {
-        htmlString += '<td id="bonusTimes3"></td>';
+        htmlString += '<td id="bonusTimes3">x3</td>';
       }
       else if(tr == (board.tilesToASide-1)) {
-        htmlString += '<td id="bonusTimes3"></td>';
+        htmlString += '<td id="bonusTimes3">x3</td>';
       }
       else if(td == 0) {
-        htmlString += '<td id="bonusTimes3"></td>';
+        htmlString += '<td id="bonusTimes3">x3</td>';
       }
       else if(td == (board.tilesToASide-1)) {
-        htmlString += '<td id="bonusTimes3"></td>';
+        htmlString += '<td id="bonusTimes3">x3</td>';
       }
 
       else if((limit >=11) && (tr == middle-2 && td == middle -2)) {
        var r = middle-2;
         while (r < middle+3) {
-          htmlString += '<td id="bonusTimes2"></td>';
+          htmlString += '<td id="bonusTimes2">x2</td>';
           r++;
           l++;
           console.log(" " + r + "r ");
@@ -43,7 +43,7 @@ App.prototype.render = function() {
       else if((limit >=11) && (tr == middle+2 && td == middle -2)) {
         r = middle-2;
         while (r < middle+3) {
-          htmlString += '<td id="bonusTimes2"></td>';
+          htmlString += '<td id="bonusTimes2">x2</td>';
           l++;
           r++;
           console.log(" " + r + "r ");
@@ -52,10 +52,10 @@ App.prototype.render = function() {
 
       }
       else if(td == (middle-2) && (!(tr<=(middle-2)) && !(tr>=(middle+2)))) {
-        htmlString += '<td id="bonusTimes2"></td>';
+        htmlString += '<td id="bonusTimes2">x2</td>';
       }
       else if(td == (middle+2) && (!(tr<=(middle-2)) && !(tr>=(middle+2)))) {
-        htmlString += '<td id="bonusTimes2"></td>';
+        htmlString += '<td id="bonusTimes2">x2</td>';
       }
       else if((v+l)<=(limit-3)) {
         //if the board is smaller than
