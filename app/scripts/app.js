@@ -5,68 +5,48 @@ App = function(board) {
 
 App.prototype.render = function() {
 
-  var middle = ((Math.round(board.tilesToASide/2))-1);
   var htmlString = '<table>';
+  var middle = ((Math.round(board.tilesToASide/2))-1);
   var limit = board.tilesToASide;
 
   for(var tr = 0; tr < board.tilesToASide; tr++) {
     htmlString += '<tr>';
-    var l = 0;
-    var v = 0;
     for (var td = 0; td < board.tilesToASide; td++) {
+
+      //condition for orange middle tile
       if((tr == middle)&&(td == middle)){
         htmlString += '<td id="middle"></td>';
       }
-      else if(tr == 0) {
-        htmlString += '<td id="bonusTimes3">x3</td>';
-      }
-      else if(tr == (board.tilesToASide-1)) {
-        htmlString += '<td id="bonusTimes3">x3</td>';
-      }
-      else if(td == 0) {
-        htmlString += '<td id="bonusTimes3">x3</td>';
-      }
-      else if(td == (board.tilesToASide-1)) {
+
+
+      //condition for x3 bonus tiles, outer border
+      else if((tr == 0) || (tr == (limit-1)) || (td == 0) || (td == (limit-1))) {
         htmlString += '<td id="bonusTimes3">x3</td>';
       }
 
-      else if((limit >=11) && (tr == middle-2 && td == middle -2)) {
-       var r = middle-2;
-        while (r < middle+3) {
-          htmlString += '<td id="bonusTimes2">x2</td>';
-          r++;
-          l++;
-          console.log(" " + r + "r ");
-          console.log(" " + l + "l ");
-        }
-      }
-      else if((limit >=11) && (tr == middle+2 && td == middle -2)) {
-        r = middle-2;
-        while (r < middle+3) {
-          htmlString += '<td id="bonusTimes2">x2</td>';
-          l++;
-          r++;
-          console.log(" " + r + "r ");
-          console.log(" " + l + "l ");
-        }
 
-      }
-      else if(td == (middle-2) && (!(tr<=(middle-2)) && !(tr>=(middle+2)))) {
-        htmlString += '<td id="bonusTimes2">x2</td>';
-      }
-      else if(td == (middle+2) && (!(tr<=(middle-2)) && !(tr>=(middle+2)))) {
-        htmlString += '<td id="bonusTimes2">x2</td>';
-      }
-      else if((v+l)<=(limit-3)) {
-        //if the board is smaller than
-          htmlString += '<td id="normal"></td>';
-          v++;
-        console.log(" " + v + "v ");
+      //condition for x2 bonus tiles, inner border, top and bottom row
+      // (Why the heck do I need the td -= 1; ?! It works, but I do not know why.)
+      else if(((limit >=9) && (tr == middle+3 && td == middle -3)) || ((tr == middle-3 && td == middle -3))) {
+        while (td < middle+4) {
+          td++;
+          htmlString += '<td id="bonusTimes2">x2</td>';
         }
+        td -= 1;
+      }
+
+      // condition for x2 bonus tiles, inner border, left and right columns
+      else if(/* left side */(td == (middle-3) || /* right side */td == (middle+3)) &&
+        /* condition, so the tiles don't fill out the entire column*/
+        (!(tr<=(middle-3)) && !(tr>=(middle+3)))) {
+        htmlString += '<td id="bonusTimes2">x2</td>';
+      }
+
       else {
+        htmlString += '<td id="normal"></td>';
       }
-    }
 
+    }
     htmlString += '</tr>';
   }
   htmlString += '</table>';
