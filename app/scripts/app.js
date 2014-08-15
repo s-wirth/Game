@@ -9,6 +9,13 @@ App.prototype.render = function() {
   var middle = ((Math.round(board.tilesToASide/2))-1);
   var limit = board.tilesToASide;
 
+  var widthOfRing = 7, // 3 on each side plus the 1 tile in the middle
+      minimumBoardSizeForInnerBonusTileRing = widthOfRing + 2, // 1 for space, 1 for the outer ring
+      topOfRing = middle - 3, // These additions/subtractions should be derived from widthOfRing
+      bottomOfRing = middle + 3,
+      leftSideOfRing = middle - 3,
+      rightSideOfRing = middle + 3;
+
   for(var tr = 0; tr < board.tilesToASide; tr++) {
     htmlString += '<tr>';
     for (var td = 0; td < board.tilesToASide; td++) {
@@ -24,15 +31,16 @@ App.prototype.render = function() {
         htmlString += '<td id="bonusTimes3">x3</td>';
       }
 
-
-      //condition for x2 bonus tiles, inner border, top and bottom row
-      // (Why the heck do I need the td -= 1; ?! It works, but I do not know why.)
-      else if(((limit >=9) && (tr == middle+3 && td == middle -3)) || ((tr == middle-3 && td == middle -3))) {
-        while (td < middle+4) {
-          td++;
+      // At the beginning of the top or bottom row of the inner ring, output a number of 2x bonus tiles equal to the
+      // width of the ring.
+      else if( board.tilesToASide >= minimumBoardSizeForInnerBonusTileRing && // Board is large enough to draw the ring
+                tr == topOfRing && td == leftSideOfRing || // We're at the top-left corner of the ring
+                tr == bottomOfRing && td == leftSideOfRing ) // We're at the bottom-left corner of the ring
+      {
+        for(var i = 0; i < widthOfRing; i++) {
           htmlString += '<td id="bonusTimes2">x2</td>';
         }
-        td -= 1;
+        td = rightSideOfRing;
       }
 
       // condition for x2 bonus tiles, inner border, left and right columns
