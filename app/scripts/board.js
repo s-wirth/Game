@@ -1,4 +1,4 @@
-Board = function(tilesToASide, tileSize) {
+Board = function(tilesToASide) {
   this.tilesToASide = tilesToASide;
   var tiles = [];
   for(var i = 0; i < tilesToASide; i++){
@@ -28,15 +28,12 @@ Board.prototype.setRingPattern = function() {
       leftSideOfRing = middle - 3,
       rightSideOfRing = middle + 3;
 
+  this.tiles[middle][middle].middle = true;
+
   for(var tr = 0; tr < this.tiles.length; tr++) {
     for (var td = 0; td < this.tiles.length; td++) {
-      //condition for orange middle tile
-      if((tr == middle)&&(td == middle)){
-        this.tiles[tr][td].middle = true;
-      }
-
       //condition for x3 bonus tiles, outer border
-      else if((tr == 0) || (tr == (limit-1)) || (td == 0) || (td == (limit-1))) {
+      if((tr == 0) || (tr == (limit-1)) || (td == 0) || (td == (limit-1))) {
         this.tiles[tr][td].multiplier = 3;
       }
 
