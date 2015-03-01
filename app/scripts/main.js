@@ -4,7 +4,7 @@ board.setRingPattern();
 
 function placeTokens(board) {
   var symbols = ['ferret', 'star', 'triangle', 'circle', 'square'],
-      colors = ['red', 'blue', 'green', 'red', 'yellow'];
+      colors = ['red', 'blue', 'green', 'pink', 'yellow'];
 
   for(var symbolIndex = 0; symbolIndex < symbols.length; symbolIndex++) {
     var symbol = symbols[symbolIndex];

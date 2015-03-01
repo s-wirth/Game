@@ -1,4 +1,4 @@
-Token = function(color, symbol){
-
-
+Token = function(color, symbol) {
+  this.color = color;
+  this.symbol = symbol;
 }

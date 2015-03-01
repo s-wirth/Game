@@ -95,43 +95,142 @@ body {
 .tile {
   border:1px solid #AEEFFC;
   text-align: center;
-}
-
-.tile.normal {
-  background:#fff;
-  border: 1px solid #C0EBF4;
-  background: linear-gradient(180deg, #fff, #D7F8FF);
+  position: relative;
   height:40px;
   width:40px;
+  font-family: Arial;
+
+  &.normal {
+    border: 1px solid #C0EBF4;
+    background: linear-gradient(180deg, #fff, #D7F8FF);
+  }
+
+  &.middle {
+    background: linear-gradient(180deg, #fff, #F4CFA7);
+    border:1px solid #E7C8A7;
+  }
+
+  &.bonus-times-3 {
+    background: linear-gradient(180deg, #fff, #FFD3DF);
+    border:1px solid #FFC0D1;
+  }
+
+  &.bonus-times-2 {
+    background: linear-gradient(180deg, #fff, #B9EAD2);
+    border:1px solid #ABE0C6;
+  }
+
+  &.bonus-times-2::before {
+    content: 'x2';
+    color: #04B45F;
+  }
+
+  &.bonus-times-3::before {
+    content: 'x3';
+    color: #F47F9D;
+  }
 }
 
-.tile.middle {
-  background:#000;
-  border: 1px solid #9ad8e5;
-  background: linear-gradient(180deg, #fff, #F4CFA7);
-  border:1px solid #E7C8A7;
-  height:40px;
-  width:40px;
+.tile.bonus-times-2::before, .tile.bonus-times-3::before, .token {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 40px;
 }
 
-.tile.bonus-times-3 {
-  background:#000;
-  border: 1px solid #9ad8e5;
-  background: linear-gradient(180deg, #fff, #FFD3DF);
-  border:1px solid #FFC0D1;
-  height:40px;
-  width:40px;
-  color: #F47F9D;
-  font-family: verdana;
+.token {
+  background: white;
+  border-radius: 50%;
+  border-bottom: rgba(0,0,0,0.4) 2px solid;
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  top: (40px - 30px) / 2;
+  left: (40px - 30px) / 2;
+  color: white;
+  font-size: 90%;
+  font-weight: bold;
+
+  &.red {
+    background-color: red;
+  }
+
+  &.blue {
+    background-color: blue;
+  }
+
+  &.green {
+    background-color: green;
+  }
+
+  &.yellow {
+    background-color: yellow;
+    color: black;
+  }
+
+  &.pink {
+    background-color: pink;
+  }
+
+
+  &.ferret {
+    &::before {
+      content: 'F';
+    }
+  }
+
+  &.star {
+    &::before {
+      content: 'ST';
+    }
+  }
+
+  &.triangle {
+    &::before {
+      content: 'T';
+    }
+  }
+
+  &.circle {
+    &::before {
+      content: 'C';
+    }
+  }
+
+  &.square {
+    &::before {
+      content: 'SQ';
+    }
+  }
+
 }
 
-.tile.bonus-times-2 {
-  background:#000;
-  border: 1px solid #9ad8e5;
-  background: linear-gradient(180deg, #fff, #B9EAD2);
-  border:1px solid #ABE0C6;
-  height:40px;
-  width:40px;
-  color: #04B45F;
-  font-family: verdana;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// foo

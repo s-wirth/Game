@@ -14,19 +14,32 @@ App.prototype.drawBoard = function() {
   for(var tr = 0; tr < this.board.tilesToASide; tr++) {
     htmlString += '<tr>';
     for (var td = 0; td < this.board.tilesToASide; td++) {
-      var tile = this.board.tiles[tr][td];
+      var tile = this.board.tiles[tr][td],
+          token = tile.token,
+          tileClass,
+          multiplierString = '',
+          tokenString = '';
+
       if(tile.middle) {
-        htmlString += '<td class="tile middle"></td>';
+        tileClass = 'middle';
       }
       else if(tile.multiplier == 3) {
-        htmlString += '<td class="tile bonus-times-3">x3</td>';
+        tileClass = 'bonus-times-3';
       }
       else if(tile.multiplier == 2) {
-        htmlString += '<td class="tile bonus-times-2">x2</td>';
+        tileClass = 'bonus-times-2';
       }
       else {
-        htmlString += '<td class="tile normal"></td>';
+        tileClass = 'normal';
       }
+
+      if( tile.token ) {
+        tokenString = this.drawToken(token);
+      }
+
+      htmlString += '<td class="tile ' + tileClass + '">' +
+        tokenString +
+      '</td>';
     }
     htmlString += '</tr>';
   }
@@ -34,4 +47,8 @@ App.prototype.drawBoard = function() {
 
   var insertionPoint = $('#insertion-point');
   insertionPoint.html(htmlString);
+}
+
+App.prototype.drawToken = function(token) {
+  return '<div class="token ' + token.color + ' ' + token.symbol + '"></div>';
 }
