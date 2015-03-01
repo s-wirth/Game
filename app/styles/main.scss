@@ -91,3 +91,47 @@ body {
         border-bottom: 0;
     }
 }
+
+.tile {
+  border:1px solid #AEEFFC;
+  text-align: center;
+}
+
+.tile.normal {
+  background:#fff;
+  border: 1px solid #C0EBF4;
+  background: linear-gradient(180deg, #fff, #D7F8FF);
+  height:40px;
+  width:40px;
+}
+
+.tile.middle {
+  background:#000;
+  border: 1px solid #9ad8e5;
+  background: linear-gradient(180deg, #fff, #F4CFA7);
+  border:1px solid #E7C8A7;
+  height:40px;
+  width:40px;
+}
+
+.tile.bonus-times-3 {
+  background:#000;
+  border: 1px solid #9ad8e5;
+  background: linear-gradient(180deg, #fff, #FFD3DF);
+  border:1px solid #FFC0D1;
+  height:40px;
+  width:40px;
+  color: #F47F9D;
+  font-family: verdana;
+}
+
+.tile.bonus-times-2 {
+  background:#000;
+  border: 1px solid #9ad8e5;
+  background: linear-gradient(180deg, #fff, #B9EAD2);
+  border:1px solid #ABE0C6;
+  height:40px;
+  width:40px;
+  color: #04B45F;
+  font-family: verdana;
+}
