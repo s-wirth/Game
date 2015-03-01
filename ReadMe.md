@@ -1,4 +1,4 @@
-# LuckyMoose
+# LuckyFerret
 
 A board game where opponents take turns to lay tiles which contribute to their
 score, similar to BoardRush.
