@@ -1,0 +1,37 @@
+- Stage 1:
+  - We can draw the board with arbitrary tokens on it
+  - We can draw our Hand
+
+- Stage 2:
+  - We can lay tiles on the board
+  - We can commit our turn
+
+- Stage 3:
+  - The game prevents us from laying tiles in positions that don't obey the rules
+
+- Stage 4:
+  - Our score is calculated when we take a turn
+
+- Stage 5:
+  - The AI can take a turn
+
+- Stage 6:
+  - The game notifies us of a winner when the Pool is exhausted
+
+- Stage 7:
+  - We can exchange tiles instead of taking a turn
+
+- Stage 8:
+  - The AI can exchange tiles instead of taking a turn
+
+- Stage 9:
+  - We can communicate the state of the game to another client
+
+- Stage 10:
+  - We can join another client's game
+
+- Stage 11:
+  - We can communicate taking a turn to another client
+
+- Stage 12:
+  - We can communicate exchanging tiles to another client
