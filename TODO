@@ -1,9 +1,16 @@
-- Stage 1:
-  - We can draw the board with arbitrary tokens on it
-  - We can draw our Hand
++ Stage 0:
+  + check current code, if needed: fix code
+
++ Stage 1:
+  + We can draw the board with arbitrary tokens on it
+    + We can draw any number of rows/columns
+    + We can draw multipliers wherever they exist on the board
+    + We can draw tokens
+  + We can draw our Hand
+    + We can draw a list of tokens on the screen somewhere
 
 - Stage 2:
-  - We can lay tiles on the board
+  - We can lay tokens on the board
   - We can commit our turn
 
 - Stage 3:
