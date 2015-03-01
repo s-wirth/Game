@@ -1,11 +1,18 @@
-App = function(board) {
-  this.board = board;
+App = function() {
+  this.game = new Game(15)
+  this.board = this.game.board;
+
+  this.game.start();
 };
 
-
 App.prototype.render = function() {
-  this.drawBoard();
-  // this.drawPlayerHand();
+  var board = this.drawBoard();
+  $('.board-insertion-point').html(board);
+
+  var player1Hand = this.drawPlayerHand(this.game.players[0].hand);
+  $('.player-1-hand-insertion-point').html(player1Hand);
+  var player2Hand = this.drawPlayerHand(this.game.players[1].hand);
+  $('.player-2-hand-insertion-point').html(player2Hand);
 };
 
 App.prototype.drawBoard = function() {
@@ -45,10 +52,23 @@ App.prototype.drawBoard = function() {
   }
   htmlString += '</table>';
 
-  var insertionPoint = $('#insertion-point');
-  insertionPoint.html(htmlString);
+  return htmlString;
 }
 
 App.prototype.drawToken = function(token) {
   return '<div class="token ' + token.color + ' ' + token.symbol + '"></div>';
+}
+
+App.prototype.drawPlayerHand = function(hand) {
+  var htmlString = '<ul>';
+
+  for( var i = 0; i < hand.length; i++ ) {
+    var token = hand[i];
+    htmlString += '<li>' +
+      App.prototype.drawToken(token) +
+    '</li>';
+  }
+
+  htmlString += '</ul>';
+  return htmlString;
 }
